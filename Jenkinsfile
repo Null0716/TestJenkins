@@ -31,7 +31,7 @@ pipeline{
                     }
                     steps{
                         retry(count: 2){
-                            sh 'sh ci-scripts/build-debug.sh'
+                            sh 'sh ci-scripts/build-baidu.sh'
                         }
                     }
                 }
