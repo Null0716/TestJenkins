@@ -1,12 +1,14 @@
 #!/usr/bin/env groovy
 
 pipeline{
+    agent {
+        label "Test Jenkins Label"
+    }
     stages{
         stage('Stop Previous Running Build') {
             when {
                 anyOf{
-                    branch 'PR*';
-                    branch 'tempuat/*';
+                    branch 'main';
                 }
             }
             steps {
