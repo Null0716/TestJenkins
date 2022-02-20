@@ -1,0 +1,156 @@
+complexity:
+  active: true
+  LongMethod:
+    active: true
+    threshold: 60
+    ignoreAnnotated: ['Composable']
+  LongParameterList:
+    active: true
+    functionThreshold: 7
+    constructorThreshold: 8
+    ignoreDefaultParameters: false
+    ignoreDataClasses: true
+    ignoreAnnotated: ['Composable']
+  NestedBlockDepth:
+    active: true
+    threshold: 5
+  TooManyFunctions:
+    active: true
+    excludes: ['**/test/**', '**/androidTest/**']
+    thresholdInFiles: 16
+    thresholdInClasses: 40
+    thresholdInInterfaces: 16
+    thresholdInObjects: 16
+    thresholdInEnums: 11
+    ignoreDeprecated: true
+    ignorePrivate: true
+    ignoreOverridden: true
+
+coroutines:
+  active: true
+  GlobalCoroutineUsage:
+    active: true
+  RedundantSuspendModifier:
+    active: true
+  SleepInsteadOfDelay:
+    active: true
+  SuspendFunWithFlowReturnType:
+    active: true
+
+exceptions:
+  active: true
+  ObjectExtendsThrowable:
+    active: true
+  TooGenericExceptionCaught:
+    active: false
+    excludes: []
+    exceptionNames:
+      - 'ArrayIndexOutOfBoundsException'
+      - 'Error'
+      - 'Exception'
+      - 'IllegalMonitorStateException'
+      - 'IndexOutOfBoundsException'
+      - 'NullPointerException'
+      - 'RuntimeException'
+      - 'Throwable'
+    allowedExceptionNameRegex: '_|(ignore|expected).*'
+
+formatting:
+  active: true
+  android: false
+  autoCorrect: true
+  ImportOrdering:
+    active: true
+    autoCorrect: true
+    layout: '*,java.**,javax.**,kotlin.**,^'
+  Indentation:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+    continuationIndentSize: 4
+  NoWildcardImports:
+    active: true
+  MaximumLineLength:
+    active: true
+    maxLineLength: 120
+    ignoreBackTickedIdentifier: false
+    autoCorrect: true
+
+potential-bugs:
+  active: true
+  AvoidReferentialEquality:
+    active: true
+    forbiddenTypePatterns:
+      - 'kotlin.String'
+  CastToNullableType:
+    active: true
+  DoubleMutabilityForCollection:
+    active: true
+  HasPlatformType:
+    active: true
+  IgnoredReturnValue:
+    active: true
+    restrictToAnnotatedMethods: true
+    returnValueAnnotations:
+      - '*.CheckResult'
+      - '*.CheckReturnValue'
+    ignoreReturnValueAnnotations:
+      - '*.CanIgnoreReturnValue'
+  ImplicitDefaultLocale:
+    active: false
+  IteratorHasNextCallsNextMethod:
+    active: false
+  IteratorNotThrowingNoSuchElementException:
+    active: false
+  UnreachableCatchBlock:
+    active: true
+
+style:
+  active: true
+  ForbiddenComment:
+    active: true
+    values:
+      - 'FIXME:'
+      - 'STOPSHIP:'
+    allowedPatterns: ''
+  ForbiddenPublicDataClass:
+    active: false
+    excludes: ['**']
+    ignorePackages:
+      - '*.internal'
+      - '*.internal.*'
+  LibraryCodeMustSpecifyReturnType:
+    active: false
+    excludes: ['**']
+  LibraryEntitiesShouldNotBePublic:
+    active: false
+    excludes: ['**']
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+    excludePackageStatements: true
+    excludeImportStatements: true
+    excludeCommentStatements: false
+  MultilineLambdaItParameter:
+    active: true
+  NestedClassesVisibility:
+    active: false
+  ReturnCount:
+    active: true
+    max: 3
+    excludedFunctions: 'equals'
+    excludeLabeled: false
+    excludeReturnFromLambda: true
+    excludeGuardClauses: false
+  SerialVersionUIDInSerializableClass:
+    active: false
+  UtilityClassWithPublicConstructor:
+    active: false
+  WildcardImport:
+    active: true
+    excludes: ['**/test/**', '**/androidTest/**']
+    excludeImports:
+      - 'androidx.lifecycle.*'
+      - 'kotlinx.coroutines.*'
+      - 'java.util.*'
+      - 'androidx.compose.*'

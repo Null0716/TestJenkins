@@ -1,24 +1,41 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext.kotlin_version = '1.6.20-M1'
+    ext.detekt_version = '1.19.0'
     repositories {
         mavenCentral()
         google()
-        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.2'
+        classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+plugins {
+    id("io.gitlab.arturbosch.detekt") version "$detekt_version"
+}
+dependencies {
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:$detekt_version")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-cli:$detekt_version")
+}
+detekt {
+    toolVersion = "$detekt_version"
+    config = files("lint/detekt.yml")
+    baseline = file('lint/baseline.xml')
+    source = files('app/src/main/java')
+    buildUponDefaultConfig = true
+    autoCorrect = true
+}
+
 allprojects {
     repositories {
         mavenCentral()
         google()
-        jcenter()
     }
 }
 

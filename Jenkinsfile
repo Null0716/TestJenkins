@@ -2,7 +2,7 @@
 
 pipeline{
     agent {
-        label "master"
+       aaa label "master"
     }
     stages{
         stage('Stop Previous Running Build') {
@@ -14,6 +14,11 @@ pipeline{
         stage('Clean') {
             steps {
                 sh './gradlew clean'
+            }
+        }
+        stag('Detekt'){
+            steps{
+                sh './gradlew detekt'
             }
         }
         stage('Build'){
