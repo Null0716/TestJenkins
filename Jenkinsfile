@@ -8,7 +8,7 @@ pipeline{
         stage('Stop Previous Running Build') {
             when {
                 anyOf{
-                    branch 'main';
+                    branch 'master';
                 }
             }
             steps {
@@ -26,7 +26,7 @@ pipeline{
                 stage('build-debug-apk'){
                     when {
                         anyOf {
-                            branch 'main';
+                            branch 'master';
                         }
                     }
                     steps{
