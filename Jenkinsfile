@@ -21,7 +21,7 @@ pipeline{
                 stage('build-debug-apk'){
                     steps{
                         retry(count: 2){
-                            sh 'sh ci-scripts/build-baidu.sh'
+                            sh './gradlew assembleDebug'
                         }
                     }
                 }
