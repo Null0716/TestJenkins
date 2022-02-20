@@ -2,7 +2,7 @@
 
 pipeline{
     agent {
-        label "Pipeline Test Jenkins Label"
+        label "master"
     }
     stages{
         stage('Stop Previous Running Build') {
