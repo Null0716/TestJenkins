@@ -37,7 +37,7 @@ pipeline{
             steps{
                 script{
                     commit_msg = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-                    echo '${commit_msg}'
+                    echo commit_msg
                 }
             }
         }
