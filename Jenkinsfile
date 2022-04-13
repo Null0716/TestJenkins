@@ -16,22 +16,22 @@ pipeline{
                 sh './gradlew clean'
             }
         }
-        stage('Detekt'){
-            steps{
-                sh './gradlew detekt'
-            }
-        }
-        stage('Build'){
-            parallel{
-                stage('build-debug-apk'){
-                    steps{
-                        retry(count: 2){
-                            sh './gradlew assembleDebug'
-                        }
-                    }
-                }
-            }
-        }
+//        stage('Detekt'){
+//            steps{
+//                sh './gradlew detekt'
+//            }
+//        }
+//        stage('Build'){
+//            parallel{
+//                stage('build-debug-apk'){
+//                    steps{
+//                        retry(count: 2){
+//                            sh './gradlew assembleDebug'
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
         stage('shell'){
             steps{
