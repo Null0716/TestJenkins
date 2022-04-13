@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="parch/src/main/res/layout/base_mvp_binding.xml" value="0.16945288753799392" />
       </map>
     </option>
   </component>

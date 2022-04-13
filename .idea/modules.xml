@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TestJenkins.iml" filepath="$PROJECT_DIR$/.idea/modules/TestJenkins.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TestJenkins.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TestJenkins.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/parch/TestJenkins.parch.iml" filepath="$PROJECT_DIR$/.idea/modules/parch/TestJenkins.parch.iml" />
     </modules>
   </component>
 </project>

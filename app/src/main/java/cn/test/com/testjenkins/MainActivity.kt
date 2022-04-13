@@ -1,13 +1,13 @@
 package cn.test.com.testjenkins
 
-import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import cn.parch.com.ParchActivity
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : ParchActivity<MainOrchestrator>() {
+
+    override fun inflateDataBinding() = MainActivityDatabinding.inflate(LayoutInflater.from(this)).apply {
+        databindingTest.text = " hello dataBinding"
     }
 
     private fun test(a: Int) {
