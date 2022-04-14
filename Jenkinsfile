@@ -36,10 +36,10 @@ pipeline{
         stage('shell'){
             steps{
                 script{
-                    commit_msg = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-                    echo commit_msg
-                    sh 'echo $commit_msg'
-                    sh 'fastlane pre_release commit_msg:commit_msg'
+                    COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
+                    echo COMMIT_MSGg
+                    sh 'echo'+COMMIT_MSG
+                    sh 'fastlane pre_release commit_msg:'+COMMIT_MSG
                 }
             }
         }
