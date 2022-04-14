@@ -38,7 +38,7 @@ pipeline{
                 script{
                     COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
                     echo COMMIT_MSG
-                    sh 'echo'+COMMIT_MSG
+                    sh 'echo '+COMMIT_MSG
                     sh 'fastlane pre_release commit_msg:'+COMMIT_MSG
                 }
             }
