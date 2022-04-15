@@ -37,8 +37,8 @@ pipeline{
             steps{
                 script{
                     def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-                    COMMIT_MSG = COMMIT_MSG.replaceAll('\n', '')
-                    COMMIT_MSG = COMMIT_MSG.replaceAll(': ', '')
+                    COMMIT_MSG = COMMIT_MSG.replaceAll('\n', '/')
+                    COMMIT_MSG = COMMIT_MSG.replaceAll(':', '')
                     echo COMMIT_MSG
                     sh 'echo '+COMMIT_MSG
                     sh 'fastlane pre_release commit_msg:'+COMMIT_MSG
