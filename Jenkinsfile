@@ -36,7 +36,7 @@ pipeline{
         stage('shell'){
             steps{
                 script{
-                    def COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
+                    def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
                     COMMIT_MSG = COMMIT_MSG.replaceAll('\n', '')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(': ', '')
                     echo COMMIT_MSG
