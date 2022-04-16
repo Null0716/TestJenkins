@@ -38,6 +38,8 @@ pipeline{
                 script{
                     def branch_name = sh (script: 'git branch --show-current', returnStdout: true).trim()
                     echo '分支名称:'+branch_name
+                    def path = sh(script: 'pwd', returnStdout: true).trim()
+                    echo '当前路径:'+path
                     def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
                     COMMIT_MSG = COMMIT_MSG.replaceAll('\n\n', ';')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
