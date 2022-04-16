@@ -38,7 +38,7 @@ pipeline{
                 script{
                     def branch_name = sh (script: 'git branch | sed -n \'/\\* /s///p\'', returnStdout: true).trim()
                     def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-                    COMMIT_MSG = COMMIT_MSG.replaceAll('\n', ';')
+                    COMMIT_MSG = COMMIT_MSG.replaceAll('\n\n', ';')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(' ', '_')
                     echo COMMIT_MSG
