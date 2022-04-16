@@ -37,12 +37,12 @@ pipeline{
             steps{
                 script{
                     def branch_name = sh (script: 'git branch|sed -n \'/\\* /s///p\'', returnStdout: true).trim()
+                    echo '分支名称:'+branch_name
                     def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
                     COMMIT_MSG = COMMIT_MSG.replaceAll('\n\n', ';')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(' ', '_')
-                    echo branch_name
-                    echo COMMIT_MSG
+                    echo '提交日志:'+COMMIT_MSG
 //                    sh 'echo '+branch_name+";"+COMMIT_MSG
 //                    sh 'fastlane pre_release commit_msg:'+COMMIT_MSG
                 }
