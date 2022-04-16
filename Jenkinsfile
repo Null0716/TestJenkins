@@ -41,9 +41,10 @@ pipeline{
                     COMMIT_MSG = COMMIT_MSG.replaceAll('\n\n', ';')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(' ', '_')
+                    echo branch_name
                     echo COMMIT_MSG
-                    sh 'echo '+branch_name+";"+COMMIT_MSG
-                    sh 'fastlane pre_release commit_msg:'+COMMIT_MSG
+//                    sh 'echo '+branch_name+";"+COMMIT_MSG
+//                    sh 'fastlane pre_release commit_msg:'+COMMIT_MSG
                 }
             }
         }
