@@ -11,11 +11,11 @@ pipeline{
                 milestone label: '', ordinal:  Integer.parseInt(env.BUILD_ID)
             }
         }
-        stage('Clean') {
-            steps {
-                sh './gradlew clean'
-            }
-        }
+//        stage('Clean') {
+//            steps {
+//                sh './gradlew clean'
+//            }
+//        }
 //        stage('Detekt'){
 //            steps{
 //                sh './gradlew detekt'
@@ -36,7 +36,7 @@ pipeline{
         stage('shell'){
             steps{
                 script{
-                    def branch_name = sh (script: 'git branch | sed -n \'/\\* /s///p\'', returnStdout: true).trim()
+                    def branch_name = sh (script: 'git branch|sed -n \'/\\* /s///p\'', returnStdout: true).trim()
                     def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
                     COMMIT_MSG = COMMIT_MSG.replaceAll('\n\n', ';')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
