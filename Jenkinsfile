@@ -43,6 +43,7 @@ pipeline{
                     COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(' ', '_')
                     echo '提交日志:'+COMMIT_MSG
+
 //                    sh 'echo '+branch_name+";"+COMMIT_MSG
 //                    sh 'fastlane pre_release commit_msg:'+COMMIT_MSG
                 }
