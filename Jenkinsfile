@@ -36,7 +36,7 @@ pipeline{
         stage('shell'){
             steps{
                 script{
-                    echo $BRANCH_NAME
+                    echo env.BRANCH_NAME
                     def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
                     COMMIT_MSG = COMMIT_MSG.replaceAll('\n\n', ';')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
