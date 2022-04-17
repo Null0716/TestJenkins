@@ -36,13 +36,11 @@ pipeline{
         stage('shell'){
             steps{
                 script{
-                    def branch_name = env.GIT_BRANCH.trim().replaceAll('\n', '；')
+                    def BRANCH_NAME = env.GIT_BRANCH.trim().replaceAll('\n', '；')
                     def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-                    COMMIT_MSG = COMMIT_MSG.replaceAll('\n\n', '；')
-                    COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
-                    COMMIT_MSG = COMMIT_MSG.replaceAll(' ', '_')
-                    def appcenter_msg = branch_name+COMMIT_MSG
-                    echo '提交日志:'+appcenter_msg
+                    COMMIT_MSG = COMMIT_MSG.replaceAll('\n\n', '；').replaceAll(':', '-')..replaceAll(' ', '_')
+                    def APP_CENTER_MSG = BRANCH_NAME+COMMIT_MSG
+                    echo '提交日志:'+APP_CENTER_MSG
 
 //                    sh 'echo '+branch_name+";"+COMMIT_MSG
 //                    sh 'fastlane pre_release commit_msg:'+COMMIT_MSG
