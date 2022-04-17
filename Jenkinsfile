@@ -38,9 +38,9 @@ pipeline{
                 script{
                     def BRANCH_NAME = env.GIT_BRANCH.trim().replaceAll('\n', '；')
                     def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-                    COMMIT_MSG.replaceAll('\n\n', '；')
-                    COMMIT_MSG.replaceAll(':', '-')
-                    COMMIT_MSG.replaceAll(' ', '_')
+                    COMMIT_MSG = COMMIT_MSG.replaceAll('\n', '；')
+                    COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
+                    COMMIT_MSG = COMMIT_MSG.replaceAll(' ', '_')
                     def APP_CENTER_MSG = BRANCH_NAME+COMMIT_MSG
                     echo '提交日志:'+APP_CENTER_MSG
 
