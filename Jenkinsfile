@@ -1,6 +1,10 @@
 #!/usr/bin/env groovy
 
 pipeline{
+    environment {
+        BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
+    }
+
     agent {
         label "master"
     }
@@ -36,7 +40,7 @@ pipeline{
         stage('shell'){
             steps{
                 script{
-                    echo env.BRANCH_NAME
+                    echo env.GIT_BRANCH
                     def COMMIT_MSG = sh (script: 'git log -5 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
                     COMMIT_MSG = COMMIT_MSG.replaceAll('\n\n', ';')
                     COMMIT_MSG = COMMIT_MSG.replaceAll(':', '-')
